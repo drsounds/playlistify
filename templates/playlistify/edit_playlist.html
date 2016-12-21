@@ -1,0 +1,23 @@
+{% extends "playlistify/base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Add playlist</h1>
+            <form method="POST" action="/dashboard/playlist/{{slug}}">
+                {% csrf_token %}
+                <label for="name">Spotify URI</label>
+                <input type="text" class="form-control" name="uri" value="{{playlist.uri}}">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" value="{{playlist.name}}">
+                <label for="name">Description</label>
+                <textarea class="form-control" name="description" value="{{playlist.description}}">
+                    
+                </textarea>
+                <button type="submit" class="btn btn-outline-primary">Add</button>
+            </form>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}
